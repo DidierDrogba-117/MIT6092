@@ -29,7 +29,7 @@ public class DrawGraphics {
         movers.add(movingSprite2);
 
         // for (Bouncer b : bouncers) {
-        //     b.setMovementVector(3, 1);
+        // b.setMovementVector(3, 1);
         // }
 
         // striaght movers
@@ -45,7 +45,7 @@ public class DrawGraphics {
         movers.add(sMover2);
 
         // for (StraightMover s : straightMovers) {
-        //     s.setMovementVector(-1, -1);
+        // s.setMovementVector(-1, -1);
         // }
         for (Mover m : movers) {
             if (m instanceof Bouncer) {
@@ -63,11 +63,11 @@ public class DrawGraphics {
         }
         // movingSprite.draw(surface);
         // for (Bouncer b : bouncers) {
-        //     b.draw(surface);
+        // b.draw(surface);
         // }
 
         // for (StraightMover s : straightMovers) {
-        //     s.draw(surface);
+        // s.draw(surface);
         // }
     }
 }
