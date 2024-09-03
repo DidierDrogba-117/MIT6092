@@ -9,11 +9,14 @@ public class DrawGraphics {
     StraightMover sMover1;
     StraightMover sMover2;
 
-    ArrayList<Bouncer> bouncers = new ArrayList<>();
-    ArrayList<StraightMover> straightMovers = new ArrayList<>();
+    // ArrayList<Bouncer> bouncers = new ArrayList<>();
+    // ArrayList<StraightMover> straightMovers = new ArrayList<>();
+
+    ArrayList<Mover> movers;
 
     /** Initializes this class for drawing. */
     public DrawGraphics() {
+        movers = new ArrayList<>();
 
         // bouncers
         Rectangle box = new Rectangle(15, 20, Color.RED);
@@ -22,12 +25,12 @@ public class DrawGraphics {
         Oval oval = new Oval(10, 10, Color.YELLOW);
         movingSprite2 = new Bouncer(80, 70, oval);
 
-        bouncers.add(movingSprite);
-        bouncers.add(movingSprite2);
+        movers.add(movingSprite);
+        movers.add(movingSprite2);
 
-        for (Bouncer b : bouncers) {
-            b.setMovementVector(3, 1);
-        }
+        // for (Bouncer b : bouncers) {
+        //     b.setMovementVector(3, 1);
+        // }
 
         // striaght movers
 
@@ -38,23 +41,33 @@ public class DrawGraphics {
         sMover2 = new StraightMover(50, 10, oval1);
 
         // stright movers
-        straightMovers.add(sMover1);
-        straightMovers.add(sMover2);
+        movers.add(sMover1);
+        movers.add(sMover2);
 
-        for (StraightMover s : straightMovers) {
-            s.setMovementVector(-1, -1);
+        // for (StraightMover s : straightMovers) {
+        //     s.setMovementVector(-1, -1);
+        // }
+        for (Mover m : movers) {
+            if (m instanceof Bouncer) {
+                m.setMovementVector(3, 1);
+            } else {
+                m.setMovementVector(-1, -1);
+            }
         }
     }
 
     /** Draw the contents of the window on surface. */
     public void draw(Graphics surface) {
+        for (Mover m : movers) {
+            m.draw(surface);
+        }
         // movingSprite.draw(surface);
-        for (Bouncer b : bouncers) {
-            b.draw(surface);
-        }
+        // for (Bouncer b : bouncers) {
+        //     b.draw(surface);
+        // }
 
-        for (StraightMover s : straightMovers) {
-            s.draw(surface);
-        }
+        // for (StraightMover s : straightMovers) {
+        //     s.draw(surface);
+        // }
     }
 }
